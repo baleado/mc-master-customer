@@ -7,7 +7,7 @@ To build and run the application you only need a JDK 8 available.
 
 ## Useful tips
 
-Default HTTP port: 8080
+Default HTTP port: 8000
 
 Basic Authentication credentials:
 
