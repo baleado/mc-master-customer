@@ -19,7 +19,7 @@ Pass: admin
 Default H2 console URL
 
 ```java
-http://localhost:8000/mc/console
+http://localhost:8000/mc/h2-console
 ```
 
 Default Swagger URL
@@ -42,20 +42,22 @@ To build the application you must clone the project from the GIT repository to y
 
 ```bash
 # Clone repository
-git clone http://sdlssdh
+git clone https://github.com/baleado/mc-master-customer.git
 
 # Navigate inside directory
-cd mc-master-customer
+cd mc-master-customer/mc-master-customer-parent
+
 ```
 
 You can compile the application by runnning mvnw
 ```bash
-./mvnw.bat clean install
+mvnw clean install
 ```
 
 When compilation is complete you should be able to run the application with the following command
 ```java
-java -jar mc-master-customer-starter-1.0.0-SNAPSHOT.jar
+cd mc-master-customer-starter/target
+java -jar mc-master-customer-starter-0.0.1-SNAPSHOT.jar
 ```
 
 After application started you should be able to access the swagger through the following URL:
