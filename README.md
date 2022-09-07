@@ -20,6 +20,10 @@ Default H2 console URL
 
 ```java
 http://localhost:8000/mc/h2-console
+Driver Class: org.h2.Driver
+JDBC URL: jdbc:h2:mem:mydb
+User Name: sa
+Password: password
 ```
 
 Default Swagger URL
