@@ -22,21 +22,17 @@ public class CustomWebSecurityConfigurerAdapter {
 	@Bean
 	public UserDetailsService userDetailsService(BCryptPasswordEncoder bCryptPasswordEncoder) {
 		InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
-		manager.createUser(User.withUsername("admin").password(bCryptPasswordEncoder.encode("admin")).roles("ADMIN").build());
+		manager.createUser(
+				User.withUsername("admin").password(bCryptPasswordEncoder.encode("admin")).roles("ADMIN").build());
 		return manager;
 	}
 
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
-		http.csrf().disable()
-			.authorizeRequests()
-			.anyRequest()
-			.authenticated()
-			.and()
-			.httpBasic();
+		http.csrf().disable().authorizeRequests().anyRequest().authenticated().and().httpBasic();
 		http.headers().frameOptions().disable();
 		return http.build();
-		
+
 	}
 }
