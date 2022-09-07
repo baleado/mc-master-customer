@@ -1,0 +1,86 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.jpaa.mastercard</groupId>
+	<artifactId>mc-master-customer-parent</artifactId>
+	<packaging>pom</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<properties>
+		<java.version>1.8</java.version>
+		<maven-compiler-plugin.version>2.3.2</maven-compiler-plugin.version>
+		<spring-boot-dependencies-version>2.7.3</spring-boot-dependencies-version>
+		<springfox-swagger.version>2.9.2</springfox-swagger.version>
+		<swagger-annotations.version>1.5.0</swagger-annotations.version>
+	</properties>
+
+	<modules>
+		<module>mc-master-customer-repository</module>
+		<module>mc-master-customer-services</module>
+		<module>mc-master-customer-starter</module>
+		<module>mc-master-customer-web</module>
+	</modules>
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- SPRING DEPENDENCIES -->
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>${spring-boot-dependencies-version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<!-- APP DEPENDENCIES -->
+			<dependency>
+				<groupId>com.jpaa.mastercard</groupId>
+				<artifactId>mc-master-customer-repository</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.jpaa.mastercard</groupId>
+				<artifactId>mc-master-customer-services</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.jpaa.mastercard</groupId>
+				<artifactId>mc-master-customer-web</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
+			<!-- EXTERNAL DEPENDENCIES -->
+			<dependency>
+				<groupId>io.springfox</groupId>
+				<artifactId>springfox-swagger2</artifactId>
+				<version>${springfox-swagger.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.springfox</groupId>
+				<artifactId>springfox-swagger-ui</artifactId>
+				<version>${springfox-swagger.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.swagger</groupId>
+				<artifactId>swagger-annotations</artifactId>
+				<version>${swagger-annotations.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler-plugin.version}</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
